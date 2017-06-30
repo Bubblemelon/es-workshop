@@ -4,9 +4,14 @@
 function generateEsQuery(queryString, selectedUser) {
   return {
     "query": {
+	"bool":{
+	"must":[
+     {
+	"match":{
       "query_string" : {
-        "query" : queryString
+        "query" : "user.screen_name": selectedUser
       }
     }
   }
+ }
 }
